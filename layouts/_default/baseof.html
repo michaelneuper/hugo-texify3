@@ -2,6 +2,24 @@
 <html lang="{{ .Site.LanguageCode }}" style="font-size: {{ .Site.Params.rootFontSize | default "100%" }}">
 
 <head>
+  <!-- avoid flash of unstyled content !-->
+  <script>
+	(function() {
+		const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
+		const darkMode = localStorage.getItem("darkMode");
+		const docEl = document.documentElement;
+
+		// disable transition untill it finish loading
+		docEl.classList.add("no-transition");
+
+		// if dark mode is enabled or os prefers dark mode
+		if (darkMode === "enabled" || (darkMode === null && prefersDarkMode.matches)) {
+			docEl.classList.add("darkmode");
+		}
+	})();
+  </script>
+
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

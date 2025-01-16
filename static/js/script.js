@@ -43,39 +43,29 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Dark mode toggle
-let darkMode = localStorage.getItem("darkMode");
-const darkModeToggle = document.querySelectorAll("#dark-mode-toggle");
+(function() {
+	let darkMode = localStorage.getItem("darkMode");
+	const toggleBtn = document.getElementById("dark-mode-toggle");
 
-const enableDarkMode = () => {
-  document.body.classList.add("darkmode");
-  localStorage.setItem("darkMode", "enabled");
-};
+	function enableDarkMode() {
+		document.documentElement.classList.add("darkmode");
+		localStorage.setItem("darkMode", "enabled");
+	}
 
-const disableDarkMode = () => {
-  document.body.classList.remove("darkmode");
-  localStorage.setItem("darkMode", "disabled");
-};
+	function disableDarkMode() {
+		document.documentElement.classList.remove("darkmode");
+		localStorage.setItem("darkMode", "disabled");
+	}
 
-const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
-
-if (darkMode === "enabled") {
-  enableDarkMode();
-} else if (darkMode === null && prefersDarkMode.matches) {
-  enableDarkMode();
-} else {
-  disableDarkMode();
-}
-
-darkModeToggle.forEach((toggle) => {
-  toggle.addEventListener("click", () => {
-    darkMode = localStorage.getItem("darkMode");
-    if (darkMode !== "enabled") {
-      enableDarkMode();
-    } else {
-      disableDarkMode();
-    }
-  });
-});
+	toggleBtn.addEventListener("click", () => {
+		darkMode = localStorage.getItem("darkMode");
+		if (darkMode !== "enabled") {
+			enableDarkMode();
+		} else {
+			disableDarkMode();
+		}
+	});
+})();
 
 // Scroll to top button
 var backToTopBtn = document.getElementById("back-to-top");
