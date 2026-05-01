@@ -15,6 +15,9 @@ pagerSize = 5
 tags = "tags"
 categories = "categories"
 
+[markup.goldmark.renderer]
+unsafe = true
+
 [params]
 title="TeXify3"
 author = "Michael Neuper"
