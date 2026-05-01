@@ -2,7 +2,7 @@
 
 > A LaTeX-style hugo theme with the gruvbox color scheme for personal blogging
 
-[![Hugo](https://img.shields.io/badge/hugo-0.115.1-blue.svg)](https://gohugo.io)
+[![Hugo](https://img.shields.io/badge/hugo-0.160.0-blue.svg)](https://gohugo.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Hugo](https://github.com/michaelneuper/hugo-texify3/actions/workflows/hugo.yml/badge.svg)](https://github.com/michaelneuper/hugo-texify3/actions/workflows/hugo.yml)
 
@@ -11,15 +11,16 @@
 
 ## Features
 
-- Any comment engine (giscus, remark42, hyvor, etc.)
-- [Mermaid](https://mermaid.js.org) support
+- Any comment engine (Giscus, Disqus, Remark42, Hyvor, etc.)
+- [Mermaid](https://mermaid.js.org) diagram support
 - DuckDuckGo search
 - Buymeacoffee widget
 - Auto numbered subtitles
-- [Disqus](https://disqus.com/) & Google Analytics
+- Google Analytics
 - Render math equations with [KaTeX](https://katex.org/)
 - [PostCSS](https://postcss.org/) to make writing CSS easier
-- Dark mode toggle
+- Dark mode toggle with system preference detection
+- Copy button on code blocks
 - Citations
 
 Visit the [demo site](https://michaelneuper.github.io/hugo-texify3/).
@@ -37,7 +38,7 @@ git submodule add https://github.com/michaelneuper/hugo-texify3.git themes/hugo-
 
 Visit the [wiki](https://github.com/michaelneuper/hugo-texify3/wiki) for more information on how to install and configure.
 
-See [`hugo.toml`](https://github.com/weastur/hugo-texify2/blob/master/hugo.toml)
+See [`hugo.toml`](https://github.com/michaelneuper/hugo-texify3/blob/main/exampleSite/hugo.toml)
 for an example configuration.
 
 ## Acknowledgement
