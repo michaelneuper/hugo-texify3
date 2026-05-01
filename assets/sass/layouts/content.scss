@@ -1,7 +1,7 @@
 @use "sass:math";
 
-@import "../vars";
-@import "../syntax";
+@use "../vars" as *;
+@use "../syntax" as *;
 
 .content {
   .MathJax {

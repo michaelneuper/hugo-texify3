@@ -1,7 +1,7 @@
 @use "sass:math";
 
-@import "../vars";
-@import "../fonts";
+@use "../vars" as *;
+@use "../fonts" as *;
 
 // global
 * {

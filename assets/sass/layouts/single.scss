@@ -1,4 +1,4 @@
-@import "../vars";
+@use "../vars" as *;
 
 #main {
   & > h1 {
