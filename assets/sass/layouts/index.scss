@@ -33,25 +33,25 @@
     ul {
       list-style: none;
       padding: 0;
-      border-color: var(--fg4);
+      border-color: var(--bg2);
       display: block;
       padding: math.div($margin, 2);
       margin-top: math.div($margin, 2);
       margin-bottom: math.div($margin, 2);
-      border: $border solid;
+      border: 1px solid;
       border-radius: $radius;
 
       li a {
         text-decoration: none;
         display: block;
-        padding: 2px 12px;
+        padding: 0.3rem 0.75rem;
         color: var(--fg);
-        transition: color 0.3s, background-color 0.3s;
+        transition: color 0.2s ease, background-color 0.2s ease;
+        border-radius: $radius;
 
         &:hover {
           color: var(--fg1);
           background-color: var(--bg_s);
-          border-radius: $radius;
         }
       }
     }

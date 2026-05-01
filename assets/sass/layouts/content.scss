@@ -41,10 +41,12 @@
 
   blockquote {
     background-color: var(--bg_s);
-    border-left: var(--fg) $border solid;
-    border-radius: $radius;
+    border-left: 3px solid var(--fg4);
+    border-radius: 0 $radius $radius 0;
     font-style: italic;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   blockquote blockquote {
@@ -54,10 +56,13 @@
   pre {
     background-color: var(--bg_s) !important;
     border-radius: $radius;
+    border: 1px solid var(--bg2);
     font-family: "Latin Modern Mono", Courier, monospace;
     position: relative;
     overflow-x: auto;
-    padding: 1rem;
+    padding: 1.1rem 1.25rem;
+    font-size: 0.92em;
+    line-height: 1.6;
 
     code {
       padding: 0;
@@ -94,8 +99,8 @@
 
     td,
     th {
-      border: var(--fg4) $border solid;
-      padding: 0.1rem 0.5rem;
+      border: var(--fg4) 1px solid;
+      padding: 0.4rem 0.75rem;
     }
 
     th {
@@ -124,15 +129,19 @@ button.copy-button {
   position: absolute;
   top: calc((4px + $margin) / 2);
   right: calc((4px + $margin) / 2);
-  opacity: 0.7;
+  opacity: 0;
   border: none;
   padding: 0.5rem;
   border-radius: $radius;
   cursor: pointer;
-  transition: opacity 0.3s;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+
+  pre:hover & {
+    opacity: 0.7;
+  }
 
   &:hover {
-    opacity: 1;
+    opacity: 1 !important;
     background-color: var(--bg);
   }
 

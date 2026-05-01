@@ -31,8 +31,10 @@
     <ul>
       {{ range .Pages }}
       <li>
-        <a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <time>{{ .PublishDate.Format .Site.Params.dateFormat }}</time>
+        <a class="post-link" href="{{ .RelPermalink }}">
+          <span>{{ .Title }}</span>
+          <time>{{ .PublishDate.Format .Site.Params.dateFormat }}</time>
+        </a>
       </li>
       {{ end }}
     </ul>

@@ -7,9 +7,9 @@
 $phi: math.div(1 + math.sqrt(5), 2);
 $f: math.div(2.4rem, math.pow($phi, 2));
 
-$radius: 0.25rem;
-$margin: 1rem;
-$max-width: 70vw;
+$radius: 0.3rem;
+$margin: 1.1rem;
+$max-width: 68vw;
 $padding: math.div(100vw - $max-width, 2);
 $border: 2px;
 $mobile-breakpoint: 768px;

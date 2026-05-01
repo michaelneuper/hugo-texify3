@@ -13,10 +13,12 @@
 body {
   background-color: var(--bg);
   color: var(--fg);
+  line-height: 1.6;
 }
 
 a {
   text-decoration: none;
+  transition: color 0.2s ease;
 
   &:link {
     color: var(--blue);
@@ -40,11 +42,11 @@ time {
 }
 
 hr {
-  background-color: var(--fg4);
+  background: linear-gradient(to right, transparent, var(--fg4), transparent);
   margin-top: $margin;
   margin-bottom: $margin;
   border: 0;
-  height: $border;
+  height: 1px;
 }
 
 #wrapper {
@@ -89,9 +91,11 @@ hr {
   align-items: center;
   display: flex;
   flex-direction: column;
+  margin-bottom: 0.5rem;
 
   & > h1 {
     text-align: center;
+    letter-spacing: 0.02em;
 
     @media screen and (min-width: $mobile-breakpoint) {
       font-size: 2.8rem;
@@ -104,7 +108,7 @@ hr {
     justify-content: space-around;
     flex-wrap: wrap;
     max-width: $mobile-breakpoint;
-    margin-top: 10px;
+    margin-top: 0.75rem;
     width: 100%;
 
     & > span > a {
@@ -165,9 +169,12 @@ main {
   color: var(--fg4);
   align-items: center;
   display: flex;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   flex-direction: column;
-  margin-top: $margin;
+  margin-top: $margin * 1.5;
+  padding-top: $margin;
+  border-top: 1px solid var(--bg2);
+  gap: 0.25rem;
 
   & > .footnote {
     text-align: center;

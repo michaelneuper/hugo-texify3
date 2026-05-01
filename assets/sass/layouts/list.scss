@@ -2,21 +2,20 @@
 
 #main {
   & > .post-group {
+    margin-bottom: 0.5rem;
+
     & > ul {
-      border-left: var(--fg4) solid $border;
+      border-left: 1px solid var(--fg4);
       list-style-type: none;
       margin-left: 0.5rem;
       padding-left: $margin;
 
       & > li {
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        line-height: 1.6;
+        border-radius: $radius;
+        transition: background-color 0.2s ease;
 
-        & > time {
-          text-align: right;
+        &:hover {
+          background-color: var(--bg_s);
         }
       }
 
@@ -26,12 +25,22 @@
       }
     }
 
-    a {
+    a.post-link {
       text-decoration: none;
-      transition: text-decoration 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.15rem 0.5rem;
+      line-height: 1.8;
+      color: var(--blue);
 
-      &:hover {
-        text-decoration: underline;
+      &:visited {
+        color: var(--blue-dim);
+      }
+
+      time {
+        color: var(--fg4);
+        text-align: right;
       }
     }
   }
