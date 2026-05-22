@@ -23,8 +23,15 @@
           </button>
     </form>
   </div>
-  {{ end }}  
-  {{ $pages := where .Data.Pages "Type" "posts" }}
+  {{ end }}
+  
+  <div id="content" class="index">
+    {{ .Content }}
+    <div style="margin-top: 20px;"></div> <!-- Adds 20px space -->
+  </div>
+  
+  {{ $pages := .Pages }}
+
   {{ range $pages.GroupByDate "2006-01" }}
   <div class="post-group">
     <h3>{{ dateFormat "January 2006" (printf "%s-01" .Key) }}</h3>
