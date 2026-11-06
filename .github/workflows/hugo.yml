@@ -1,4 +1,4 @@
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
+# Build the demo site with Hugo and deploy it to Cloudflare Workers (static assets)
 name: Hugo
 
 on:
@@ -9,16 +9,13 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
+  group: "deploy"
   cancel-in-progress: false
 
 # Default to bash
@@ -27,12 +24,12 @@ defaults:
     shell: bash
 
 jobs:
-  # Build job
-  build:
+  deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
       HUGO_VERSION: 0.160.0
+      BASE_URL: https://texify3.michaelneuper.com/
     steps:
       - name: Install Hugo CLI
         run: |
@@ -41,12 +38,9 @@ jobs:
       - name: Install Dart Sass
         run: sudo snap install dart-sass
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           submodules: recursive
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build with Hugo
@@ -59,20 +53,16 @@ jobs:
             --contentDir exampleSite/content \
             --themesDir .. \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+            --baseURL "$BASE_URL"
+      # wrangler-action reads each line of `command` as a separate command
+      # and does its own quote parsing, so keep the message to one line
+      # without double quotes or backslashes.
+      - name: Read commit subject
+        id: commit
+        run: echo "message=$(git log -1 --format=%s | tr -d '"\\' | cut -c1-100)" >> "$GITHUB_OUTPUT"
+      - name: Deploy to Cloudflare
+        uses: cloudflare/wrangler-action@v4
         with:
-          path: ./public
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --message "${{ steps.commit.outputs.message }}"

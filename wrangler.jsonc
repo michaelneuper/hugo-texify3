@@ -1,0 +1,15 @@
+// Static-assets-only Worker serving the Hugo demo site built into ./public
+{
+  "name": "hugo-texify3",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./public"
+  },
+  "routes": [
+    {
+      "pattern": "texify3.michaelneuper.com",
+      "custom_domain": true
+    }
+  ],
+  "workers_dev": false
+}

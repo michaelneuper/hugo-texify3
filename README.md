@@ -23,7 +23,7 @@
 - Copy button on code blocks
 - Citations
 
-Visit the [demo site](https://michaelneuper.github.io/hugo-texify3/).
+Visit the [demo site](https://texify3.michaelneuper.com/).
 
 
 ![Lighthouse report](https://github.com/michaelneuper/hugo-texify3/assets/73108749/2bd66f9d-0c28-4ea5-acbc-d53e9078a2cd)

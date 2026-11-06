@@ -5,7 +5,7 @@ description = "A latex-style hugo theme with the gruvbox color scheme for person
 
 homepage = "https://github.com/michaelneuper/hugo-texify3"
 
-demosite = "https://michaelneuper.github.io/hugo-texify3/"
+demosite = "https://texify3.michaelneuper.com/"
 
 tags = ["blog", "clean", "latex", "light", "minimal", "responsive", "simple"]
 features = ["blog", "postcss", "comments", "google analytics"]
